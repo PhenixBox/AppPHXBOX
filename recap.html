@@ -1,29 +1,43 @@
-<!-- recap.html -->
+<!-- recapitulatif.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Récapitulatif de la commande</title>
   <link rel="stylesheet" href="style.css">
-  <title>Récapitulatif de la Location</title>
 </head>
 <body>
-  <header>
-    <img src="assets/images/phenix-recyclage.png" alt="Logo Phenix Recyclage">
-  </header>
-  <main>
-    <h1>Récapitulatif de votre réservation</h1>
-    <div id="summary">
-      <!-- Dynamique avec JS -->
-    </div>
-    <div>
-      <input type="checkbox" id="cgu-cgv" required>
-      <label for="cgu-cgv">
-        J'accepte les <a href="cgu.html" target="_blank">CGU</a> et les <a href="cgv.html" target="_blank">CGV</a>
-      </label>
-    </div>
-    <button id="validate">Valider</button>
-  </main>
-  <script src="script.js"></script>
+  <h1>Récapitulatif de votre commande</h1>
+
+  <div id="recap"></div>
+
+  <button onclick="goToPayment()">Passer au paiement</button>
+
+  <script>
+    // Récupérer les données du localStorage
+    const nom = localStorage.getItem('nom');
+    const prenom = localStorage.getItem('prenom');
+    const email = localStorage.getItem('email');
+    const adresse = localStorage.getItem('adresse');
+    const box = localStorage.getItem('box');
+    const assurance = localStorage.getItem('assurance');
+
+    // Afficher les données dans la page
+    const recapContainer = document.getElementById('recap');
+    recapContainer.innerHTML = `
+      <p><strong>Nom :</strong> ${nom}</p>
+      <p><strong>Prénom :</strong> ${prenom}</p>
+      <p><strong>Email :</strong> ${email}</p>
+      <p><strong>Adresse :</strong> ${adresse}</p>
+      <p><strong>Box sélectionné :</strong> ${box}</p>
+      <p><strong>Assurance choisie :</strong> ${assurance}</p>
+    `;
+
+    // Fonction pour rediriger vers la page de paiement
+    function goToPayment() {
+      window.location.href = 'payment.html';  // Ou votre page de paiement
+    }
+  </script>
 </body>
 </html>
