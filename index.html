@@ -1,0 +1,59 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Location de Box</title>
+</head>
+<body>
+  <header>
+    <img src="assets/images/phenix-recyclage.png" alt="Logo Phenix Recyclage">
+  </header>
+  <main>
+    <h1>Location de Box</h1>
+    <form id="rental-form">
+      <label for="first-name">Prénom:</label>
+      <input type="text" id="first-name" name="first-name" required>
+
+      <label for="last-name">Nom:</label>
+      <input type="text" id="last-name" name="last-name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <h2>Adresse:</h2>
+      <label for="street-number">Numéro de voie:</label>
+      <input type="text" id="street-number" name="street-number" required>
+
+      <label for="street-name">Nom de voie:</label>
+      <input type="text" id="street-name" name="street-name" required>
+
+      <label for="postal-code">Code Postal:</label>
+      <input type="text" id="postal-code" name="postal-code" required>
+
+      <label for="city-name">Nom de ville:</label>
+      <input type="text" id="city-name" name="city-name" required>
+
+      <h2>Choisissez votre contrat:</h2>
+      <label for="contract-size">Taille du box:</label>
+      <select id="contract-size" name="contract-size" required>
+        <option value="15m²">15m² - 90€</option>
+        <option value="30m²">30m² - 120€</option>
+      </select>
+
+      <h2>Assurance du box:</h2>
+      <label>
+        <input type="radio" name="insurance" value="tiers" required> Assurance tiers
+      </label>
+      <label>
+        <input type="radio" name="insurance" value="premium"> Assurance premium
+      </label>
+
+      <button type="submit">Suivant</button>
+    </form>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

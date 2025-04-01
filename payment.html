@@ -1,0 +1,27 @@
+<!-- payment.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Paiement</title>
+</head>
+<body>
+  <header>
+    <img src="assets/images/phenix-recyclage.png" alt="Logo Phenix Recyclage">
+  </header>
+  <main>
+    <h1>Paiement</h1>
+    <form id="payment-form">
+      <label for="card-element">Informations de la carte bancaire:</label>
+      <div id="card-element">
+        <!-- Stripe Element will be inserted here -->
+      </div>
+      <button type="submit">Payer</button>
+    </form>
+  </main>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="stripe.js"></script>
+</body>
+</html>
