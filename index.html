@@ -1,59 +1,66 @@
-<!-- index.html -->
+<!-- formulaire.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulaire de réservation</title>
   <link rel="stylesheet" href="style.css">
-  <title>Location de Box</title>
 </head>
 <body>
-  <header>
-    <img src="assets/images/phenix-recyclage.png" alt="Logo Phenix Recyclage">
-  </header>
-  <main>
-    <h1>Location de Box</h1>
-    <form id="rental-form">
-      <label for="first-name">Prénom:</label>
-      <input type="text" id="first-name" name="first-name" required>
+  <h1>Formulaire de réservation</h1>
+  <form id="reservationForm">
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" required><br><br>
 
-      <label for="last-name">Nom:</label>
-      <input type="text" id="last-name" name="last-name" required>
+    <label for="prenom">Prénom :</label>
+    <input type="text" id="prenom" name="prenom" required><br><br>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email" required><br><br>
 
-      <h2>Adresse:</h2>
-      <label for="street-number">Numéro de voie:</label>
-      <input type="text" id="street-number" name="street-number" required>
+    <label for="adresse">Adresse :</label>
+    <input type="text" id="adresse" name="adresse" required><br><br>
 
-      <label for="street-name">Nom de voie:</label>
-      <input type="text" id="street-name" name="street-name" required>
+    <label for="box">Type de box :</label>
+    <select id="box" name="box" required>
+      <option value="15m² pour 90€">15m² pour 90€</option>
+      <option value="30m² pour 120€">30m² pour 120€</option>
+    </select><br><br>
 
-      <label for="postal-code">Code Postal:</label>
-      <input type="text" id="postal-code" name="postal-code" required>
+    <label for="assurance">Type d'assurance :</label>
+    <select id="assurance" name="assurance" required>
+      <option value="tiers">Tiers</option>
+      <option value="premium">Premium</option>
+    </select><br><br>
 
-      <label for="city-name">Nom de ville:</label>
-      <input type="text" id="city-name" name="city-name" required>
+    <button type="submit">Valider</button>
+  </form>
 
-      <h2>Choisissez votre contrat:</h2>
-      <label for="contract-size">Taille du box:</label>
-      <select id="contract-size" name="contract-size" required>
-        <option value="15m²">15m² - 90€</option>
-        <option value="30m²">30m² - 120€</option>
-      </select>
+  <script>
+    // Gestion du formulaire
+    document.getElementById('reservationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
 
-      <h2>Assurance du box:</h2>
-      <label>
-        <input type="radio" name="insurance" value="tiers" required> Assurance tiers
-      </label>
-      <label>
-        <input type="radio" name="insurance" value="premium"> Assurance premium
-      </label>
+      // Récupérer les valeurs du formulaire
+      const nom = document.getElementById('nom').value;
+      const prenom = document.getElementById('prenom').value;
+      const email = document.getElementById('email').value;
+      const adresse = document.getElementById('adresse').value;
+      const box = document.getElementById('box').value;
+      const assurance = document.getElementById('assurance').value;
 
-      <button type="submit">Suivant</button>
-    </form>
-  </main>
-  <script src="script.js"></script>
+      // Stocker ces informations dans le localStorage
+      localStorage.setItem('nom', nom);
+      localStorage.setItem('prenom', prenom);
+      localStorage.setItem('email', email);
+      localStorage.setItem('adresse', adresse);
+      localStorage.setItem('box', box);
+      localStorage.setItem('assurance', assurance);
+
+      // Rediriger vers la page de récapitulatif
+      window.location.href = 'recapitulatif.html';
+    });
+  </script>
 </body>
 </html>
